@@ -34,20 +34,28 @@ function parseHTML(data) {
 }
 
 function queryIMDB(search) {
-  http.get({
-    host: 'www.imdb.com',
-    path: `/find?ref_=nv_sr_fn&q=${search}&s=all`,
-  }, (res) => {
-    let html = '';
-    res.on('data', (data) => {
-      html += data;
-    }).on('error', (e) => {
-      console.log(`Got error: ${e.message}`);
-    }).on('end', () => {
-      parseHTML(html);
-      console.log();
+  if (search === undefined) {
+    console.log('WHY');
+  } else {
+    http.get({
+      host: 'www.imdb.com',
+      path: `/find?ref_=nv_sr_fn&q=${search}&s=all`,
+    }, (res) => {
+      let html = '';
+      res.on('data', (data) => {
+        html += data;
+      }).on('error', (e) => {
+        console.log(`Got error: ${e.message}`);
+      }).on('end', () => {
+        parseHTML(html);
+        console.log();
+      });
     });
-  });
+  }
 }
 
-queryIMDB(process.argv[2]);
+module.exports = { parseHTML, queryIMDB };
+
+if (!module.parent) {
+  queryIMDB(process.argv[2]);
+}
