@@ -1,0 +1,25 @@
+{
+  "name": "movie-search-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "movie-search.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeoJax/Movie-Search-CLI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NeoJax/Movie-Search-CLI/issues"
+  },
+  "homepage": "https://github.com/NeoJax/Movie-Search-CLI#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "cheerio": "^1.0.0-rc.2",
+    "mocha": "^3.5.3",
+    "phantomjs": "^2.1.7"
+  }
+}
